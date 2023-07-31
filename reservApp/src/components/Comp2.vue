@@ -12,14 +12,13 @@
         router.push("/hello-world")
     }
 
+    const goToCalendar = () => {
+        router.push("/calendar")
+    }
+
 </script>
 
 <template>
-    <v-card>
-        <v-card-title>
-            <span class="headline">Oaa</span>
-        </v-card-title>
-    </v-card>
 
     <router-view></router-view>
     
@@ -40,6 +39,12 @@
             <v-icon>mdi-map-marker</v-icon>
 
             Mi cuenta
+        </v-btn>
+
+        <v-btn value="calendar" @click="goToCalendar">
+            <v-icon>mdi-map-marker</v-icon>
+
+            Calendario
         </v-btn>
     </v-bottom-navigation>
 

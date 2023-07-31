@@ -25,6 +25,11 @@ const routes = [
         name: 'hello-world',
         component: () => import('@/components/HelloWorld.vue'),
       },
+      {
+        path: '/calendar',
+        name: 'calendar',
+        component: () => import('@/components/Calendar.vue'),
+      },
     ],
   },
 ]
