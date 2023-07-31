@@ -7,7 +7,7 @@
 <template>
   <v-app>
     <v-main>
-      <Home />
+      <RouterView/>
     </v-main>
   </v-app>
 </template>
