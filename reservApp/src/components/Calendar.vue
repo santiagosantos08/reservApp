@@ -11,7 +11,6 @@ export default {
   data() {
     return {
       selected: new Date(),
-      //make the selected date available to outside components
     };
   },
   watch: {
