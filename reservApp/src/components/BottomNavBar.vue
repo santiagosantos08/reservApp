@@ -3,50 +3,39 @@
     import router from '@/router';
     
     const goToReservar = () => {
-        router.push("/comp1")
+        router.push("/NewReservation")
     }
 
-    const goToHelloWorld = () => {
-        router.push("/hello-world")
+    const goToMisReservas = () => {
+        router.push("/MyReservations")
     }
 
-    const goToCalendar = () => {
-        router.push("/calendar")
+    const goToMyAccount = () => {
+        router.push("/MyAccount")
     }
 
 </script>
 
 <template>
-
-    <router-view></router-view>
-    
     <v-bottom-navigation :elevation="14" grow>
         <v-btn value="reservar" @click="goToReservar">
-            <v-icon>mdi-history</v-icon>
+            <v-icon>mdi-heart</v-icon>
 
             Reservar
         </v-btn>
 
-        <v-btn value="favorites" @click="goToHelloWorld">
+        <v-btn value="favorites" @click="goToMisReservas">
             <v-icon>mdi-heart</v-icon>
 
             Mis Reservas
         </v-btn>
 
-        <v-btn value="nearby">
+        <v-btn value="calendar" @click="goToMyAccount">
             <v-icon>mdi-map-marker</v-icon>
 
             Mi cuenta
         </v-btn>
-
-        <v-btn value="calendar" @click="goToCalendar">
-            <v-icon>mdi-map-marker</v-icon>
-
-            Calendario
-        </v-btn>
     </v-bottom-navigation>
-
-
 </template>
 
 <style>

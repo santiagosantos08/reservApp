@@ -11,7 +11,7 @@
                 // Signed in 
                 const user = userCredential.user;
                 // ...
-                router.push("/hello-world")
+                router.push("/NewReservation")
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -35,7 +35,7 @@
 
 <template>
     <v-card>
-        <v-divider :thickness="150" class="border-opacity-0" color="info"></v-divider>
+        <v-divider :thickness="50" class="border-opacity-0" color="info"></v-divider>
 
         <v-card-title>
             <span class="headline">Login</span>

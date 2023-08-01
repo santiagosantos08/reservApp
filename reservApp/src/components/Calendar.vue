@@ -1,9 +1,9 @@
 <template>
-  <v-card>
+
     <div class="center">
       <DatePicker mode="dateTime" is24hr :time-accuracy='1' />
     </div>
-  </v-card>
+
 </template>
   
 <script lang="ts">
@@ -30,7 +30,9 @@ export default {
   justify-content: center;
   align-items: center;
   text-align: center;
-  min-height: 100vh;
+  margin-top: 5vh;
+  min-height: 10vh;
+  max-height: 80vh;
 }
 </style>
   

@@ -9,7 +9,7 @@ const routes = [
       {
         path: '',
         name: 'Landing',
-        component: () => import('@/views/SignUp.vue'), //cambiar a landing
+        component: () => import('@/views/Login.vue'), //cambiar a landing
       },
       {
         path: '/SignUp',
@@ -22,25 +22,25 @@ const routes = [
         component: () => import('@/views/Login.vue'),
       },
       {
-        path: '/home',
+        path: '/Home',
         name: 'Home',
         component: () => import('@/views/Home.vue'),
       },
-      //aca son comp en vez de views arreglar ese tema
+      //-------
       {
-        path: '/comp1',
-        name: 'comp1',
-        component: () => import('@/components/Comp1.vue'),
+        path: '/MyAccount',
+        name: 'MyAccount',
+        component: () => import('@/views/MyAccount.vue'),
       },
       {
-        path: '/hello-world',
-        name: 'hello-world',
-        component: () => import('@/components/HelloWorld.vue'),
+        path: '/MyReservations',
+        name: 'MyReservations',
+        component: () => import('@/views/MyReservations.vue'),
       },
       {
-        path: '/calendar',
-        name: 'calendar',
-        component: () => import('@/components/Calendar.vue'),
+        path: '/NewReservation',
+        name: 'NewReservation',
+        component: () => import('@/views/NewReservation.vue'),
       },
     ],
   },
