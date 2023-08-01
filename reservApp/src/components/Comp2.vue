@@ -1,9 +1,7 @@
 <script setup lang="ts">
     import { ref } from 'vue'
-    import { useRouter } from 'vue-router'
+    import router from '@/router';
     
-    const router = useRouter()
-
     const goToReservar = () => {
         router.push("/comp1")
     }

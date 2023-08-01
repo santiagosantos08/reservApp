@@ -1,7 +1,36 @@
 <script setup lang="ts">
     import { ref } from 'vue'
+    import router from '@/router';
+    import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
     const email = ref('')
     const password = ref('')
+
+    const submitData = () => {
+        signInWithEmailAndPassword(getAuth(), email.value, password.value)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                // ...
+                router.push("/hello-world")
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                alert(errorMessage)
+            });
+    }
+
+    const goToSignUp = () => {
+        router.push("/SignUp")
+    }
+
+    const forgotUserCredentials = () => {
+        // TODO
+    }
+
+    const useGoogle = () => {
+        // TODO
+    }
 </script>
 
 <template>
@@ -31,23 +60,24 @@
         </v-card-text>
         <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn block variant="outlined" color="primary">Login</v-btn>
+            <v-btn @click="submitData" block variant="outlined" color="primary">Login</v-btn>
         </v-card-actions>
+
         <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn block variant="text" color="primary">Forgot your password?</v-btn>
+            <v-btn @click="forgotUserCredentials" block variant="text" color="primary">Forgot your password?</v-btn>
         </v-card-actions>
 
         <v-divider :thickness="100" class="border-opacity-0" color="info"></v-divider>
 
         <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn block variant="outlined" color="primary">Register</v-btn>
+            <v-btn @click="goToSignUp" block variant="outlined" color="primary">Register</v-btn>
         </v-card-actions>
 
         <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn block variant="outlined" color="primary">Sign in with Google</v-btn>
+            <v-btn @click="useGoogle" block variant="outlined" color="primary">Sign in with Google</v-btn>
         </v-card-actions>
     </v-card>
 </template>

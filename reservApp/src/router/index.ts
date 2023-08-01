@@ -8,11 +8,23 @@ const routes = [
     children: [
       {
         path: '',
+        name: 'Landing',
+        component: () => import('@/views/SignUp.vue'), //cambiar a landing
+      },
+      {
+        path: '/SignUp',
+        name: 'SignUp',
+        component: () => import('@/views/SignUp.vue'),
+      },
+      {
+        path: '/Login',
+        name: 'Login',
+        component: () => import('@/views/Login.vue'),
+      },
+      {
+        path: '/home',
         name: 'Home',
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () => import(/* webpackChunkName: "home" */ '@/views/Home.vue'),
+        component: () => import('@/views/Home.vue'),
       },
       //aca son comp en vez de views arreglar ese tema
       {

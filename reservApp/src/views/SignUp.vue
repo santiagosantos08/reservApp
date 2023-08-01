@@ -1,7 +1,32 @@
 <script setup lang="ts">
     import { ref } from 'vue'
+    import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+    import router from '@/router';
     const email = ref('')
     const password = ref('')
+
+    const submitData = () => {
+        createUserWithEmailAndPassword(getAuth(), email.value, password.value)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                // ...
+                router.push("/hello-world")
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                alert(errorMessage)
+            });
+    }
+
+    const goToLogin = () => {
+        router.push("/Login")
+    }
+
+    const useGoogle = () => {
+        // TODO
+    }
 </script>
 
 <template>
@@ -29,20 +54,22 @@
                 ></v-text-field>
             </v-form>
         </v-card-text>
+
         <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn block variant="outlined" color="primary">SignUp</v-btn>
+            <v-btn @click="submitData" block variant="outlined" color="primary">SignUp</v-btn>
         </v-card-actions>
+
         <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn block variant="text" color="primary">Already have an account? Login!</v-btn>
+            <v-btn @click="goToLogin" block variant="text" color="primary">Already have an account? Login!</v-btn>
         </v-card-actions>
 
         <v-divider :thickness="100" class="border-opacity-0" color="info"></v-divider>
 
         <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn block variant="outlined" color="primary">Sign in with Google</v-btn>
+            <v-btn @click="useGoogle" block variant="outlined" color="primary">Sign in with Google</v-btn>
         </v-card-actions>
     </v-card>
 </template>
