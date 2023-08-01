@@ -17,7 +17,8 @@
 </script>
 
 <template>
-    <v-bottom-navigation :elevation="14" grow>
+<v-container>
+    <v-bottom-navigation fixed app>
         <v-btn value="reservar" @click="goToReservar">
             <v-icon>mdi-heart</v-icon>
 
@@ -36,6 +37,7 @@
             Mi cuenta
         </v-btn>
     </v-bottom-navigation>
+</v-container>
 </template>
 
 <style>

@@ -16,8 +16,14 @@
   */
   //veriricar esto (? medio raro)
 
+  import { getAuth } from "firebase/auth";
+
+  const auth = getAuth();
+  const user = auth
+
 </script>
 
 <template>
+  <RouterView/>
   <BottomNavBarVue/>
 </template>

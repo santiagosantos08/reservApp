@@ -4,6 +4,7 @@
     import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
     const email = ref('')
     const password = ref('')
+    
 
     const submitData = () => {
         signInWithEmailAndPassword(getAuth(), email.value, password.value)

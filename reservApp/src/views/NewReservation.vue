@@ -45,7 +45,6 @@ export default {
         </v-dialog>
         </v-btn>
     </div>
-    <BottomNavBarVue/>
 </template>
 
 <style>
