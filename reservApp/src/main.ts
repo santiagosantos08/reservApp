@@ -14,7 +14,7 @@ import { createApp } from 'vue'
 import { registerPlugins } from '@/plugins'
 
 import router from './router'
-/*
+
 //---firebase---
 import { initializeApp } from "firebase/app";
 const firebaseConfig = {
@@ -28,7 +28,7 @@ const firebaseConfig = {
 };
 initializeApp(firebaseConfig);
 //---firebase---
-*/
+
 
 const app = createApp(App)
 

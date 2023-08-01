@@ -6,11 +6,10 @@
 
 <template>
     <v-card>
-
         <v-divider :thickness="150" class="border-opacity-0" color="info"></v-divider>
 
         <v-card-title>
-            <span class="headline">Registrate</span>
+            <span class="headline">Login</span>
         </v-card-title>
 
         <v-divider :thickness="25" class="border-opacity-0" color="info"></v-divider>
