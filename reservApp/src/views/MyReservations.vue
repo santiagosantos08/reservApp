@@ -27,6 +27,4 @@ async function generatePossibleReservations(){
 
 <template>
   <v-btn @click="generatePossibleReservations">Request Query</v-btn>
-  <v-btn @click="redraw = 21">REdraw</v-btn>
-  <v-btn v-for="reservation in reservations" color="warning" :key="redraw" @click="">{{redraw+')-'+ reservation.year+' -- '+reservation.month+', '+reservation.day}}</v-btn>
 </template>
