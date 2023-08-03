@@ -10,6 +10,7 @@
             .then((userCredential) => {
                 // Signed in 
                 const user = userCredential.user;
+                console.log(user);
                 // ...
                 router.push("/Home/NewReservation")
             })
@@ -17,6 +18,7 @@
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 alert(errorMessage)
+                console.log(errorCode);
             });
     }
 

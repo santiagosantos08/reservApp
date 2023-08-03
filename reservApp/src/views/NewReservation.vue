@@ -1,9 +1,9 @@
 <script lang="ts" setup>
     import { ref } from 'vue';
     import calendar from '@/components/Calendar.vue';
-    import reservations from '@/components/reservations.vue';
+
     import {addDoc,getDocs,collection,query,where} from 'firebase/firestore';
-    import { getFirestore,Timestamp } from 'firebase/firestore';
+    import { getFirestore } from 'firebase/firestore';
     const db = getFirestore();
 
     const openHours = new Set([7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22]);
@@ -12,7 +12,6 @@
     defineProps({
       date: Date,
       time: Number,
-      initialized: Boolean,
     });
 
     let resGeneric = {
@@ -70,7 +69,7 @@
       //console.log(reservation);
     }
     function makeReservation(hour : number){
-      if (initialized){
+      if (initialized.value == true){
         resGeneric.hour = hour;
         addDoc(collection(db, 'reservations'), resGeneric)
           .then((docRef) => {
@@ -88,9 +87,10 @@
 
 <template>
     <calendar @date="onDateReceived"/>
-    <div class="center">
-      <v-btn v-for="hour in openHours" color="primary" :disabled="hours.has(hour)" :key="redraw" @click="makeReservation(hour);generatePossibleReservations()">{{ hour }}</v-btn>
+    <div v-if="initialized" class="center">
+      <v-btn v-for="hour of openHours" color="primary" :disabled="hours.has(hour)" :key="redraw" @click="makeReservation(hour);generatePossibleReservations()">{{ hour }}</v-btn>
     </div>
+    <div v-else class="center">Select a date</div>
 </template>
 
 <style>

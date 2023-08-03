@@ -1,5 +1,4 @@
 <script lang="ts">
-import { ref } from 'vue';
 import { DatePicker } from 'v-calendar';
 import 'v-calendar/style.css';
 

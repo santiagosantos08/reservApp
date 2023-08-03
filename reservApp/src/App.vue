@@ -1,8 +1,4 @@
 <script setup lang="ts">
-  import HelloWorld from '@/components/HelloWorld.vue'
-  import Comp1 from '@/components/Comp1.vue'
-  import Home from '@/views/Home.vue'
-  import Login from '@/components/Login.vue'
 </script>
 
 <template>
