@@ -1,7 +1,8 @@
 <script lang="ts" setup>
   import BottomNavBarVue from '@/components/BottomNavBar.vue';
+  import router from '@/router';
 
-  /*
+ /*
   router.beforeEach((to, from, next) => {
     const publicPages = ['/login', '/signup'];
     const authRequired = !publicPages.includes(to.path);
@@ -13,8 +14,8 @@
 
     next();
   });
-  */
-  //veriricar esto (? medio raro)
+ /*/
+  //anda, descomentar despues pero iria en app
 
   import { getAuth } from "firebase/auth";
 

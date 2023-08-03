@@ -11,7 +11,7 @@
                 // Signed in 
                 const user = userCredential.user;
                 // ...
-                router.push("/NewReservation")
+                router.push("/Home/NewReservation")
             })
             .catch((error) => {
                 const errorCode = error.code;

@@ -3,15 +3,15 @@
     import router from '@/router';
     
     const goToReservar = () => {
-        router.push("/NewReservation")
+        router.push("/Home/NewReservation")
     }
 
     const goToMisReservas = () => {
-        router.push("/MyReservations")
+        router.push("/Home/MyReservations")
     }
 
     const goToMyAccount = () => {
-        router.push("/MyAccount")
+        router.push("/Home/MyAccount")
     }
 
 </script>

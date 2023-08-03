@@ -22,26 +22,28 @@ const routes = [
         component: () => import('@/views/Login.vue'),
       },
       {
-        path: '/Home',
+        path: '/Home/',
         name: 'Home',
         component: () => import('@/views/Home.vue'),
+        children: [
+          {
+            path: 'NewReservation',
+            name: 'NewReservation',
+            component: () => import('@/views/NewReservation.vue'),
+          },
+          {
+            path: 'MyReservations',
+            name: 'MyReservations',
+            component: () => import('@/views/MyReservations.vue'),
+          },
+          {
+            path: 'MyAccount',
+            name: 'MyAccount',
+            component: () => import('@/views/MyAccount.vue'),
+          },
+        ],
       },
-      //-------
-      {
-        path: '/MyAccount',
-        name: 'MyAccount',
-        component: () => import('@/views/MyAccount.vue'),
-      },
-      {
-        path: '/MyReservations',
-        name: 'MyReservations',
-        component: () => import('@/views/MyReservations.vue'),
-      },
-      {
-        path: '/NewReservation',
-        name: 'NewReservation',
-        component: () => import('@/views/NewReservation.vue'),
-      },
+      //------- estos habria q comentarlos creo
     ],
   },
 ]
