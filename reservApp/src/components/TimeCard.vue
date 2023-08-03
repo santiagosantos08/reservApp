@@ -1,14 +1,10 @@
 <script setup lang="ts">
-defineProps({
-  time: String,
-})
 
 </script>
 
 <template>
     <div class="card">
         <VCard variant="outlined">
-            <h3>{{time}}</h3>
         </VCard>
     </div>
 </template>

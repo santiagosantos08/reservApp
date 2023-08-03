@@ -1,7 +1,32 @@
 <script lang="ts" setup>
-  import BottomNavBarVue from '@/components/BottomNavBar.vue';
+import {ref} from 'vue';
+import{query,collection,where,getDocs, getFirestore}from"firebase/firestore";
+
+let reservations = new Set;
+const db = getFirestore();
+const name = 'Juan';
+const lastName = 'Perez';
+let redraw = ref(0);
+let color = "warning";
+
+
+async function generatePossibleReservations(){
+  const q = query(collection(db, 'reservations'), where('name', '==', name), where('lastName', '==', lastName));
+  const querySnapshot = await getDocs(q);
+  reservations.clear();
+  querySnapshot.forEach((doc) => {
+    const data = doc.data();
+    reservations.add(data);
+    console.log(data);
+  });
+  console.log(reservations.size);
+  redraw.value = redraw.value + 1;
+  color="primary";
+};
 </script>
 
 <template>
-  <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5S7FewmYYyLNdMOfeEcB6P?utm_source=generator" width="100%" height="352" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  <v-btn @click="generatePossibleReservations">Request Query</v-btn>
+  <v-btn @click="redraw = 21">REdraw</v-btn>
+  <v-btn v-for="reservation in reservations" color="warning" :key="redraw" @click="">{{redraw+')-'+ reservation.year+' -- '+reservation.month+', '+reservation.day}}</v-btn>
 </template>

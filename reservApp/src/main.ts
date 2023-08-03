@@ -12,11 +12,11 @@ import { createApp } from 'vue'
 
 // Plugins
 import { registerPlugins } from '@/plugins'
-
 import router from './router'
 
 //---firebase---
 import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
 const firebaseConfig = {
   apiKey: "AIzaSyANiN8PTkZb7RRUqYYWLoncFO-8ZC0rdwk",
   authDomain: "cecreservas-1237e.firebaseapp.com",
@@ -26,7 +26,10 @@ const firebaseConfig = {
   appId: "1:852907542670:web:3c4112a1038c4025c7a1df",
   measurementId: "G-PKFHWZKG09"
 };
-initializeApp(firebaseConfig);
+const application = initializeApp(firebaseConfig);
+
+const db = getFirestore(application);
+
 //---firebase---
 
 
@@ -37,3 +40,4 @@ registerPlugins(app)
 app.use(router)
 
 app.mount('#app')
+

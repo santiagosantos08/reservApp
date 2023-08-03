@@ -13,15 +13,12 @@ export default {
       selected: new Date(),
     };
   },
-  watch: {
-    selected: function () {
-      console.log(`The selectedDate changed to`, this.selected);
-      //store the selected date and time from the calendar un a variable called reservation so then it can be logged and exported to outside components
-    },
-  },
-  getSelectedDate() {
-    return this.selected;//???!"#?!?"#!?!"#!"?#?!"#?!#?!"?#!"?#!"?#!"?#!"?
-  },
+  emits: ['date'],
+  watch:{
+    selected: function(){
+      this.$emit('date', this.selected);
+    }
+  }
 }
 
 
@@ -30,7 +27,7 @@ export default {
 <template>
 
     <div class="center">
-      <DatePicker v-model="selected" mode="dateTime" is24hr :time-accuracy='1' :min-date="new Date()" />
+      <DatePicker v-model="selected" mode="date" :min-date="new Date()" />
     </div>
 
 </template>
