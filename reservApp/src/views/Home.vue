@@ -26,5 +26,13 @@
 
 <template>
   <RouterView/>
-  <BottomNavBarVue/>
+  <BottomNavBarVue class="navBar" />
 </template>
+
+<style scoped>
+  .navBar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+</style>

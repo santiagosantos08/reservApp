@@ -43,9 +43,6 @@ export default {
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin-top: 5vh;
-  min-height: 10vh;
-  max-height: 80vh;
 }
 </style>
   
