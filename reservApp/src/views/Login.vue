@@ -41,7 +41,7 @@
         <v-divider :thickness="50" class="border-opacity-0" color="info"></v-divider>
 
         <v-card-title>
-            <span class="headline">Login</span>
+            <span class="headline">Login v2v2v2</span>
         </v-card-title>
 
         <v-divider :thickness="25" class="border-opacity-0" color="info"></v-divider>
@@ -80,7 +80,7 @@
 
         <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn @click="useGoogle" block variant="outlined" color="primary">Sign in with Google</v-btn>
+            <v-btn @click="useGoogle" block variant="outlined" color="primary" :disable="true">Google</v-btn>
         </v-card-actions>
     </v-card>
 </template>

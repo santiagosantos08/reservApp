@@ -1,6 +1,6 @@
 <script lang="ts" setup>
   import BottomNavBarVue from '@/components/BottomNavBar.vue';
-  import router from '@/router';
+  //import router from '@/router';
 
  /*
   router.beforeEach((to, from, next) => {
@@ -17,10 +17,9 @@
  /*/
   //anda, descomentar despues pero iria en app
 
-  import { getAuth } from "firebase/auth";
+  //import { getAuth } from "firebase/auth";
 
-  const auth = getAuth();
-  const user = auth
+  //const auth = getAuth();
 
 </script>
 
@@ -33,6 +32,6 @@
   .navBar {
     position: fixed;
     bottom: 0;
-    width: 100%;
+    max-width: 4000px;
   }
 </style>

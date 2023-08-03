@@ -88,7 +88,7 @@
 <template>
     <calendar @date="onDateReceived"/>
     <div v-if="initialized" class="center">
-      <v-btn v-for="hour of openHours" color="primary" :disabled="hours.has(hour)" :key="redraw" @click="makeReservation(hour);generatePossibleReservations()">{{ hour }}</v-btn>
+      <v-btn prepend-icon="mdi-clock" class="btonsec" v-for="hour of openHours" color="primary" :disabled="hours.has(hour)" :key="redraw" @click="makeReservation(hour);generatePossibleReservations()">{{ hour +':00 Reservar' }}</v-btn>
     </div>
     <div v-else class="center">Select a date</div>
 </template>
@@ -96,6 +96,8 @@
 <style>
 .btonsec {
   margin-top: 2vh;
+  min-width: 80vw;
+  max-width: 25px;
 }
 .center {
   display: flex;

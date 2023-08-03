@@ -1,5 +1,4 @@
 <script setup lang="ts">
-    import { ref } from 'vue'
     import router from '@/router';
     
     const goToReservar = () => {
@@ -18,7 +17,7 @@
 
 <template>
 <v-container>
-    <v-bottom-navigation fixed app>
+    <v-bottom-navigation>
         <v-btn value="reservar" @click="goToReservar">
             <v-icon>mdi-heart</v-icon>
 
