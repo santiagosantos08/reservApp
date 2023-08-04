@@ -4,6 +4,7 @@
     import router from '@/router';
     const email = ref('')
     const password = ref('')
+    const userName = ref('')
 
     const submitData = () => {
         createUserWithEmailAndPassword(getAuth(), email.value, password.value)
@@ -44,8 +45,8 @@
         <v-card-text>
             <v-form>
                 <v-text-field
-                    v-model="email"
-                    label="Email"
+                    v-model="userName"
+                    label="User Name"
                     required
                 ></v-text-field>
                 <v-text-field
