@@ -1,7 +1,6 @@
 <script lang="ts" setup>
-  import BottomNavBarVue from '@/components/BottomNavBar.vue';
+import BottomNavBarVue from '@/components/BottomNavBar.vue';
   //import router from '@/router';
-
 </script>
 
 <template>

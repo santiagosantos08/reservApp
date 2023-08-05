@@ -10,10 +10,8 @@
         signInWithEmailAndPassword(getAuth(), email.value, password.value)
             .then((userCredential) => {
                 // Signed in 
-                const user = userCredential.user;
-                console.log(user);
-                // ...
-                router.push("/Home/NewReservation")
+                //const user = userCredential.user;
+                router.push("Home/MyAccount");
             })
             .catch((error) => {
                 const errorCode = error.code;

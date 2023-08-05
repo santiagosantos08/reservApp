@@ -1,35 +1,48 @@
 <script setup lang="ts">
-    import { ref } from 'vue'
-    import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-    import router from '@/router';
-    const email = ref('')
-    const password = ref('')
-    const userName = ref('')
+import { ref } from 'vue';
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getFirestore, addDoc, collection,setDoc,doc } from 'firebase/firestore';
+import router from '@/router';
+const db = getFirestore();
+const email = ref('');
+const password = ref('');
 
-    const submitData = () => {
-        createUserWithEmailAndPassword(getAuth(), email.value, password.value)
-            .then((userCredential) => {
-                // Signed in 
-                const user = userCredential.user;
-                console.log(user);
-                // ...
-                router.push("/Home/NewReservation")
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                alert(errorMessage)
-                console.log(errorCode);
-            });
-    }
+const submitData = () => {
+    createUserWithEmailAndPassword(getAuth(), email.value, password.value)
+        .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
 
-    const goToLogin = () => {
-        router.push("/Login")
-    }
+            console.log(user);
+            setDoc(doc(db, "users", user.uid), {
+                uid: user.uid, //ya no es necesario pero bueno sino me rompe el main q busca por este dato
+                username: '',
+                completedRegistration: false,
+            }, { merge: true })
+                .then(() => {
+                    console.log("Document successfully written!");
+                })
+                .catch((error) => {
+                    console.error("Error writing document: ", error);
+                });
+            // ...
+            router.push("/ForceUserNameCompletion")
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            alert(errorMessage)
+            console.log(errorCode);
+        });
+}
 
-    const useGoogle = () => {
-        // TODO
-    }
+const goToLogin = () => {
+    router.push("/Login")
+}
+
+const useGoogle = () => {
+    // TODO
+}
 </script>
 
 <template>
@@ -44,17 +57,8 @@
 
         <v-card-text>
             <v-form>
-                <v-text-field
-                    v-model="userName"
-                    label="User Name"
-                    required
-                ></v-text-field>
-                <v-text-field
-                    v-model="password"
-                    label="Password"
-                    type="password"
-                    required
-                ></v-text-field>
+                <v-text-field v-model="email" label="Email" required></v-text-field>
+                <v-text-field v-model="password" label="Password" type="password" required></v-text-field>
             </v-form>
         </v-card-text>
 
@@ -78,27 +82,26 @@
 </template>
 
 <style scoped>
-    .headline {
-        font-size: 20px;
-        font-weight: bold;
-        margin-top: 10px;
-    }
+.headline {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+}
 
-    .v-card__actions {
-        justify-content: center;
-    }
+.v-card__actions {
+    justify-content: center;
+}
 
-    .border-opacity-75 {
-        margin: 10px;
-    }
+.border-opacity-75 {
+    margin: 10px;
+}
 
-    .v-card {
-        height: 100%;
-        width: 100%;
-    }
+.v-card {
+    height: 100%;
+    width: 100%;
+}
 
-    .v-card__title {
-        justify-content: center;
-    }
-
+.v-card__title {
+    justify-content: center;
+}
 </style>    

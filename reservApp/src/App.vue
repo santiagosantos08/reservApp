@@ -3,12 +3,12 @@ import router from './router';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 router.beforeEach((to, from, next) => {
-    const publicPages = ['/login', '/signup'];
+    const publicPages = ['/Login', '/SignUp'];
     const authRequired = !publicPages.includes(to.path);
     //const loggedIn = localStorage.getItem('user');
     const loggedIn = getAuth().currentUser;
     if (authRequired && !loggedIn) {
-      return next('/login');
+      return next('/Login');
     }
     next();
 });

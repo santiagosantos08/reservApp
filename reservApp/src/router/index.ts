@@ -22,6 +22,11 @@ const routes = [
         component: () => import('@/views/Login.vue'),
       },
       {
+        path: '/ForceUserNameCompletion',
+        name: 'ForceUserNameCompletion',
+        component: () => import('@/views/ForceUserNameCompletion.vue'),
+      },
+      {
         path: '/Home/',
         name: 'Home',
         component: () => import('@/views/Home.vue'),

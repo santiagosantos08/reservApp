@@ -97,17 +97,23 @@ function makeReservation(hour: number) {
 <template>
   <calendar @date="onDateReceived" />
   <div v-if="initialized" class="center">
-    <v-btn prepend-icon="mdi-clock" class="btonsec" v-for="hour of openHours" color="primary" :disabled="hours.has(hour)"
-      :key="redraw" @click="makeReservation(hour); generatePossibleReservations()">{{ hour + ':00 Reservar' }}</v-btn>
+    <v-div v-for="hour of openHours" :key="redraw" >
+      <v-btn v-if="!hours.has(hour)" class="btonsec" prepend-icon="mdi-clock" color="primary" @click="makeReservation(hour); generatePossibleReservations()">
+        {{ String(hour).padStart(2,'0') }}:00 | Reservar.
+      </v-btn>
+      <v-btn v-else prepend-icon="mdi-clock" class="btonsec" color="primary" disabled>
+        {{ String(hour).padStart(2,'0') }}:00 | Reservado
+      </v-btn>
+    </v-div>
   </div>
-  <div v-else class="center">Select a date</div>
+  <div v-else class="center">
+    Select a date
+  </div>
 </template>
 
 <style>
 .btonsec {
   margin-top: 2vh;
-  min-width: 80vw;
-  max-width: 25px;
 }
 
 .center {
