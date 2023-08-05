@@ -2,10 +2,9 @@
 import { ref } from 'vue';
 import calendar from '@/components/Calendar.vue';
 
-import { addDoc, getDocs, collection, query, where,doc } from 'firebase/firestore';
+import { addDoc, getDocs, collection, query, where } from 'firebase/firestore';
 import { getFirestore } from 'firebase/firestore';
 import {getAuth, onAuthStateChanged} from 'firebase/auth'
-import { useCollection } from 'vuefire';
 const db = getFirestore();
 const auth = getAuth();
 let UidExt = ref('');
@@ -56,7 +55,6 @@ async function generatePossibleReservations() {
       }
     });
     redraw.value = redraw.value + 1;
-
 
   } else {
     console.log('No se ha inicializado -- de generatePossibleReservations');

@@ -26,7 +26,7 @@ onAuthStateChanged(auth, (user) => {
   <div class="center">
     <p>Proximas Reservas</p>
     <div v-for="reservation in reservations" :key="reservation.day" color="primary">
-      <v-btn class="btonsec" @click="console.log('aa')">
+      <v-btn v-if="UidExt == reservation.uid" class="btonsec" @click="console.log('aa')">
         <v-icon color="info" icon="mdi-calendar"></v-icon>
         {{ reservation.day }}/{{ reservation.month }}/{{ reservation.year }} | 
         <v-icon color="info" icon="mdi-clock"></v-icon>
